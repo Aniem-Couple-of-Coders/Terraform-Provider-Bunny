@@ -22,6 +22,7 @@ const (
 	keyFilesStored        = "files_stored"
 	keyRegion             = "region"
 	keyReplicationRegions = "replication_regions"
+	keyZoneTier 	      = "zonetier"
 	keyReadOnlyPassword   = "read_only_password"
 	keyCustom404FilePath  = "custom_404_file_path"
 	keyRewrite404To200    = "rewrite_404_to_200"
@@ -94,6 +95,11 @@ func resourceStorageZone() *schema.Resource {
 				},
 				Optional: true,
 			},
+			keyZoneTier: {
+				Type: 		schema.TypeInt,
+				Description: 	fmt.Sprintf("The zone tier of the storage, 0 for HDD and 1 for SSD."),
+				Required:    	true,
+			},
 
 			// mutable properties
 			keyOriginURL: {
@@ -153,6 +159,9 @@ func resourceStorageZone() *schema.Resource {
 			}),
 			customdiff.ValidateChange(keyRegion, func(_ context.Context, old interface{}, new interface{}, meta interface{}) error {
 				return validateImmutableStringProperty(keyRegion, old, new)
+			}),
+			customdiff.ValidateChange(keyZoneTier, func(_ context.Context, old interface{}, new interface{}, meta interface{}) error {
+				return validateImmutableStringProperty(keyZoneTier, old, new)
 			}),
 			customdiff.ValidateChange(keyReplicationRegions, func(_ context.Context, old interface{}, new interface{}, meta interface{}) error {
 				if old == nil {
@@ -279,6 +288,7 @@ func resourceStorageZoneCreate(ctx context.Context, d *schema.ResourceData, meta
 		OriginURL:          originURL,
 		Region:             getStrPtr(d, keyRegion),
 		ReplicationRegions: getStrSetAsSlice(d, keyReplicationRegions),
+		ZoneTier: 	    getStrPtr(d, keyZoneTier),
 	})
 	if err != nil {
 		return diag.FromErr(fmt.Errorf("creating storage zone failed: %w", err))
@@ -401,6 +411,9 @@ func storageZoneToResource(sz *bunny.StorageZone, d *schema.ResourceData) error 
 		return err
 	}
 	if err := setStrSet(d, keyReplicationRegions, sz.ReplicationRegions, ignoreOrderOpt, caseInsensitiveOpt); err != nil {
+		return err
+	}
+	if err := d.Set(keyZoneTier, sz.ZoneTier); err != nil {
 		return err
 	}
 

@@ -22,6 +22,7 @@ type StorageZone struct {
 	ReplicationRegions []string    `json:"ReplicationRegions,omitempty"`
 	PullZones          []*PullZone `json:"PullZones,omitempty"`
 	ReadOnlyPassword   *string     `json:"ReadOnlyPassword,omitempty"`
+	ZoneTier	   *string     `json:"ZoneTier,omitempty"`
 }
 
 // Get retrieves the Storage Zone with the given id.

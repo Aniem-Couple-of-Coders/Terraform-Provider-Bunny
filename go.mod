@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/AlekSi/pointer v1.2.0
-	github.com/Aniem-Couple-of-Coders/Go-Module-Bunny v1.0.0
+	github.com/Aniem-Couple-of-Coders/Go-Module-Bunny v1.0.1
 	github.com/google/go-cmp v0.6.0
 	github.com/google/uuid v1.3.1
 	github.com/hashicorp/terraform-plugin-docs v0.15.0

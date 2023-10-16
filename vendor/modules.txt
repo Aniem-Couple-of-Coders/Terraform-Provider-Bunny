@@ -1,7 +1,7 @@
 # github.com/AlekSi/pointer v1.2.0
 ## explicit; go 1.18
 github.com/AlekSi/pointer
-# github.com/Aniem-Couple-of-Coders/Go-Module-Bunny v1.0.0
+# github.com/Aniem-Couple-of-Coders/Go-Module-Bunny v1.0.1
 ## explicit; go 1.18
 github.com/Aniem-Couple-of-Coders/Go-Module-Bunny
 # github.com/Masterminds/goutils v1.1.1
