@@ -4,7 +4,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 
-	bunny "github.com/simplesurance/bunny-go"
+	bunny "github.com/Aniem-Couple-of-Coders/Go-Module-Bunny"
 )
 
 const (

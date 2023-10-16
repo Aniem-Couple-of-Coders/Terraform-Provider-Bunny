@@ -1,7 +1,7 @@
 package provider
 
 import (
-	bunny "github.com/simplesurance/bunny-go"
+	bunny "github.com/Aniem-Couple-of-Coders/Go-Module-Bunny"
 )
 
 var edgeRuleActionTypesStr = map[string]int{

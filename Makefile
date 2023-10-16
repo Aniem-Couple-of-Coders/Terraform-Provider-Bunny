@@ -5,7 +5,7 @@ OS_ARCH :=$(shell go env GOHOSTOS)_$(shell go env GOHOSTARCH)
 BIN := terraform-provider-bunny
 INSTALLDIR := "$(HOME)/.terraform.d/plugins/local/simplesurance/bunny/"
 
-LDFLAGS := "-X github.com/simplesurance/terraform-provider-bunny/internal/provider.Version=$(VERSION) -X github.com/simplesurance/terraform-provider-bunny/internal/provider.Commit=$(COMMIT)"
+LDFLAGS := "-X github.com/Aniem-Couple-of-Coders/Terraform-Provider-Bunny/internal/provider.Version=$(VERSION) -X github.com/Aniem-Couple-of-Coders/Terraform-Provider-Bunny/internal/provider.Commit=$(COMMIT)"
 BUILDFLAGS := -trimpath -ldflags=$(LDFLAGS)
 
 TFTRC_FILENAME := bunny-dev.tftrc

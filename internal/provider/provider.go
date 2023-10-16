@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 
+	bunny "github.com/Aniem-Couple-of-Coders/Go-Module-Bunny"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	bunny "github.com/simplesurance/bunny-go"
 )
 
 const userAgent = "terraform-provider-bunny"

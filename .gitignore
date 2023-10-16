@@ -39,3 +39,6 @@ terraform-provider-bunny
 
 dist/
 bunny-dev.tftrc
+
+# VSCode
+.history/

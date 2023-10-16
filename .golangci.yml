@@ -22,8 +22,7 @@ linters:
 
 linters-settings:
   goimports:
-    local-prefixes: github.com/simplesurance/terraform-provider-bunnycdn
-
+    local-prefixes: github.com/Aniem-Couple-of-Coders/Terraform-Provider-Bunnycdn
 
 issues:
   exclude-use-default: false

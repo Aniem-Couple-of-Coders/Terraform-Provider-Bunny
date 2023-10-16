@@ -6,12 +6,12 @@ import (
 	"strconv"
 	"strings"
 
+	bunny "github.com/Aniem-Couple-of-Coders/Go-Module-Bunny"
 	"github.com/google/go-cmp/cmp"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	bunny "github.com/simplesurance/bunny-go"
 )
 
 const (
@@ -236,7 +236,7 @@ func validateImmutableStringProperty(key string, old interface{}, new interface{
 func immutableStringPropertyError(key string, old string, new string) error {
 	const message = "'%s' is immutable and cannot be changed from '%s' to '%s'.\n" +
 		"To change the existing '%s' the 'bunny_storagezone' must be deleted and recreated.\n" +
-		"WARNING: deleting a 'bunny_storagezone' will also delete all the data it contains!"
+		"WARNING: deleting a 'bunny_storagezone' will also delete all the data it contains"
 	return fmt.Errorf(message, key, old, new, key)
 }
 
@@ -244,7 +244,7 @@ func immutableReplicationRegionError(key string, removed []interface{}) error {
 	const message = "'%s' can be added but not removed once the zone has been created.\n" +
 		"This error occurred when attempting to remove values %+q from '%s'.\n" +
 		"To remove an existing '%s' the 'bunny_storagezone' must be deleted and recreated.\n" +
-		"WARNING: deleting a 'bunny_storagezone' will also delete all the data it contains!"
+		"WARNING: deleting a 'bunny_storagezone' will also delete all the data it contains"
 	return fmt.Errorf(
 		message,
 		key,
@@ -256,13 +256,13 @@ func immutableReplicationRegionError(key string, removed []interface{}) error {
 
 func creatingRegionWithoutReplicationRegionError(region string, availRegions []string) error {
 	const message = "%q region needs to have at least one replication region.\n" +
-		"Please add one of the available replication region %s.\n"
+		"Please add one of the available replication regions: %s"
 	return fmt.Errorf(message, region, strings.Join(availRegions, ", "))
 }
 
 func creatingRegionWithReplicationInSameRegionError(region string) error {
 	const message = "%q was specified as primary and replication region. " +
-		"The same region can not be both. Please specify different regions."
+		"The same region can not be both. Please specify different regions"
 	return fmt.Errorf(message, region)
 }
 

@@ -1,6 +1,6 @@
 package provider
 
-import bunny "github.com/simplesurance/bunny-go"
+import bunny "github.com/Aniem-Couple-of-Coders/Go-Module-Bunny"
 
 var edgeRuleTriggerTypesStr = map[string]int{
 	"url":             bunny.EdgeRuleTriggerTypeURL,
